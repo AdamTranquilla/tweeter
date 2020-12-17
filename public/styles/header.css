@@ -1,0 +1,11 @@
+.backdrop {
+  display: flex;
+  margin-top: 120px;
+  background-color: #005eff;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  height: 500px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
