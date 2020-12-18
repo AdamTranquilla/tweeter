@@ -4,6 +4,8 @@
  * Do not modify these two selectors, please
  */
 
+/* Mobile Styles */
+
 html {
   box-sizing: border-box;
 }
@@ -11,10 +13,6 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
-/*
- * Global layout stuff
- */
 
 body {
   display: flex;
@@ -24,11 +22,89 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  width: 100%;
 }
 
-main {
+nav {
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-  margin: 0 5%;
+  background-color: #005eff;
+  line-height: 10px;
+  padding: 0px 40px;
+  position: absolute;
+}
+
+nav button {
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  background-color: #005eff;
+}
+
+.tweetText {
+  word-wrap: break-word;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+}
+
+.content {
+  flex: 1 1 100%;
   padding: 3.5% 7%;
-  width: 90%;
+}
+
+.backdrop {
+  flex: 1 1 100%;
+}
+
+.upBtn {
+  color: red;
+  background-color: transparent;
+  border-color: transparent;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 40px;
+  display: none;
+}
+
+.scrolled {
+  display: block;
+}
+
+/* Desktop styles */
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    text-align: left;
+    position: sticky;
+    background-image: url("");
+    background-color: #4056A1;
+  }
+  nav button {
+    background-image: url("");
+    background-color: #4056A1;
+  }
+  .container {
+    display: flex;
+    padding: 3.5% 7%;
+  }
+  .content {
+    margin-top: 120px;
+    padding-top: 0%;
+    padding-left: 7%;
+    flex: 1 1 67%;
+  }
+  .backdrop img {
+    padding-top: 40px;
+  }
+  .backdrop {
+    margin-top: 120px;
+    flex: 1 1 33%;
+    height: 400px;
+  }
 }
