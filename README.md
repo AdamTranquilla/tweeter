@@ -1,8 +1,22 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone utilizing a HTML, CSS, JS, jQuery and AJAX front-end, and a Node, Express and MongoDB back-end.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+## Features:
+
+-Users are able to populate a tweet container with tweets which are posted by randomized users (with accompaying icons, and handles).
+-Users are notified and prevented from posting tweets that contain too many characters, or non at all
+-Cross-site scripting is escaped to prevent users from posting invasive script
+-Posted tweets feature hover over animations for additional detail
+-Application has a responsive design with unique layouts for both mobile and desktop screens
+-Animations for dropdown tweet input and scroll to top are implements via buttons
+
+## Final Product
+
+![Empty input (mobile)](https://github.com/AdamTranquilla/tweeter/blob/master/public/images/empty-text-mobile.png?raw=true)
+![Overflow input (Desktop)](https://github.com/AdamTranquilla/tweeter/blob/master/public/images/desktop-longtext.png?raw=true)
+![Browsing tweets (mobile)](https://github.com/AdamTranquilla/tweeter/blob/master/public/images/mobile-home.png)
+
 
 ## Getting Started
 
@@ -15,3 +29,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- body-parser
+- chance
+- md5
+- moment
