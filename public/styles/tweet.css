@@ -26,6 +26,7 @@
 .footer-icons {
   opacity: 0;
 }
+
 .tweet:hover .footer-icons {
   opacity: 1;
 }

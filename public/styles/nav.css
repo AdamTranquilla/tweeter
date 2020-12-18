@@ -1,24 +1,23 @@
- nav {
-   display: flex;
-   align-items: center;
-   position: fixed;
-   color: #FFFFFF;
-   height: 120px;
-   padding: 1.5em;
-   top: 0;
-   width: 100%;
-   justify-content: space-between;
- }
+nav {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  color: #FFFFFF;
+  height: 120px;
+  padding: 1.5em;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+}
 
- nav button {
-   cursor: pointer;
-   border: none;
-   color: red;
+nav button {
+  cursor: pointer;
+  border: none;
+  color: red;
+  align-items: center;
+}
 
-   align-items: center;
- }
-
- nav span {
-   font-size: 24px;
-   font-family: 'Bungee', cursive;
- }
+nav span {
+  font-size: 24px;
+  font-family: 'Bungee', cursive;
+}

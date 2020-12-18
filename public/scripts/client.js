@@ -1,20 +1,13 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(document).ready(function() {
 
   const renderTweets = function(tweets) {
     $(".tweetContainer").empty();
-    console.log('renderTweets called');
     for (const tweetObj of tweets) {
       $(".tweetContainer").prepend(createTweetElement(tweetObj));
     }
   };
 
-  const escape = function(str) {
+  const escape = function(str) { // Prevents users from posting script to container
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -37,22 +30,14 @@ $(document).ready(function() {
     <output> ${moment(tweet.created_at).fromNow()} </output>
     <div class="footer-icons">
       <i class="far fa-flag"></i>
-      <!--<i class="fas fa-flag"></i>-->
       <i class="fas fa-retweet"></i>
-      <!--colorvvagrant </i>-->
       <i class="far fa-heart"></i>
-      <!--<i class="fas fa-heart"></i>-->
     </div>
   </footer>
   </article>
   `;
     return $tweet;
   };
-
-  const $button = $('#load-more-posts');
-  $button.on('click', function() {
-    console.log('Button clicked, performing ajax call...');
-  });
 
   const loadTweets = function() {
     $.get("/tweets")
@@ -68,11 +53,11 @@ $(document).ready(function() {
     $('.new-tweet').slideToggle();
   });
 
-  $(window).scroll(function() {
-    if($(this).scrollTop() > 100) {
-      $('.upBtn').addClass('scrolled')
+  $(window).scroll(function() { // returns users to top of page by adding and removing classes
+    if ($(this).scrollTop() > 100) {
+      $('.upBtn').addClass('scrolled');
     } else {
-      $('.upBtn').removeClass('scrolled')
+      $('.upBtn').removeClass('scrolled');
     }
   });
 
@@ -82,8 +67,7 @@ $(document).ready(function() {
   });
 
   $('form').submit(function(text) {
-    console.log('Button clicked, adding new tweet to data...', this);
-    text.preventDefault(); // stops page from action if its not specific to what we want
+    text.preventDefault(); // stops page from action if text is empty or too long
     const tweetData = $(this).serialize();
     const textVal = $("textarea.text-box").val();
     if (!textVal) {
