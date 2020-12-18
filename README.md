@@ -1,15 +1,15 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone utilizing a HTML, CSS, JS, jQuery and AJAX front-end, and a Node, Express and MongoDB back-end.
+Tweeter is a simple, single-page Twitter clone utilizing an HTML, CSS, JS, jQuery, AJAX front-end, Node, Express, and MongoDB back-end.
 
 ## Features:
 
--Users are able to populate a tweet container with tweets which are posted by randomized users (with accompaying icons, and handles).
--Users are notified and prevented from posting tweets that contain too many characters, or non at all
+Users can populate a tweet container with tweets posted by randomized users (with accompanying icons and handles).
+-Users are notified and prevented from posting tweets that contain too many characters or non at all
 -Cross-site scripting is escaped to prevent users from posting invasive script
 -Posted tweets feature hover over animations for additional detail
 -Application has a responsive design with unique layouts for both mobile and desktop screens
--Animations for dropdown tweet input and scroll to top are implements via buttons
+-Animations for dropdown tweet input and scroll to the top are implements via buttons
 
 ## Final Product
 
