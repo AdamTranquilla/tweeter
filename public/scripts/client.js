@@ -4,12 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const escape = function(str) {
-  let div = document.createElement('div');
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-};
-
 $(document).ready(function() {
 
   const renderTweets = function(tweets) {
@@ -20,29 +14,32 @@ $(document).ready(function() {
     }
   };
 
-  const dateConvert = function(unix) {
-    let date = new Date(unix);
-    let fdate = date.getFullYear() + '/' + ("0" + (date.getMonth() + 1)).slice(-2) + '/' + ("0" + date.getDate()).slice(-2);
-    return fdate;
+  const escape = function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   };
 
   const createTweetElement = function(tweet) {
     const $tweet = `
   <article class="tweet">
   <header>
-    <span><i class="fas fa-fire"></i> ${tweet.user.name}</span>
+  <div class="avatar-user">
+    <img src="${tweet.user.avatars}" />
+    <span>${tweet.user.name}</span>
+    </div>
     <span class="hash">${tweet.user.handle}</span>
   </header>
   
-  <body>${escape(tweet.content.text)}</body>
+  <div class="tweetText">${escape(tweet.content.text)}</div>
   <hr>
   <footer>
-    <output> ${dateConvert(tweet.created_at)} </output>
-    <div>
-      <i class="fas fa-flag"></i>
-      <!--colorvvagrant </i>-->
-      <i class="far fa-retweet"></i>
+    <output> ${moment(tweet.created_at).fromNow()} </output>
+    <div class="footer-icons">
+      <i class="far fa-flag"></i>
       <!--<i class="fas fa-flag"></i>-->
+      <i class="fas fa-retweet"></i>
+      <!--colorvvagrant </i>-->
       <i class="far fa-heart"></i>
       <!--<i class="fas fa-heart"></i>-->
     </div>
@@ -64,9 +61,25 @@ $(document).ready(function() {
 
   $('nav button').click(function() {
     $('.new-tweet').toggleClass('visible');
+    $('#tweetText').focus(); // focus on textbox functionality currently not working :(
   });
 
+  $("nav button").click(function() {
+    $('.new-tweet').slideToggle();
+  });
 
+  $(window).scroll(function() {
+    if($(this).scrollTop() > 100) {
+      $('.upBtn').addClass('scrolled')
+    } else {
+      $('.upBtn').removeClass('scrolled')
+    }
+  });
+
+  $(".upBtn").click(function() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+  });
 
   $('form').submit(function(text) {
     console.log('Button clicked, adding new tweet to data...', this);
