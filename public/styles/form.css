@@ -1,15 +1,14 @@
-.new-tweet form.submit-counter {
-  display: none;
-}
-
-.new-tweet form.visible {
+.new-tweet form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-family: 'Bungee', cursive;
   width: 100%;
   padding: 0.5em 0.5em 1.5em 0.5em;
-  display: block;
+}
+
+.new-tweet {
+  display: none;
 }
 
 .text-box {
@@ -36,4 +35,8 @@ button {
 
 output {
   justify-content: flex-end;
+}
+
+.err {
+  padding: 0.3em 0em 0.3em 0em;
 }
