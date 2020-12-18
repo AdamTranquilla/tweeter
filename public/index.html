@@ -28,8 +28,8 @@
   <!-- Form CSS -->
   <link rel="stylesheet" href="/styles/form.css" type="text/css" />
 
-  <!-- Header CSS -->
-  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <!-- Aside CSS -->
+  <link rel="stylesheet" href="/styles/aside.css" type="text/css" />
 
   <!-- Tweet CSS -->
   <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
@@ -43,39 +43,54 @@
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
 
+  <!-- Moment JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
+
 </head>
 
 <body>
 
   <nav>
     <span>tweeter</span>
-    <button type="submit">Write a new tweet</button>
+    <div>
+      <p>Write a new tweet</p>
+      <button type="submit"><i class="fas fa-angle-double-down"></i></button>
+    </div>
   </nav>
-  <header class="backdrop">
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div>
-      <h2>Your Name</h2>
-    </div>
-  </header>
 
   <!-- Page-specific (main) content here -->
   <main class="container">
-    <section class="new-tweet">
-      <form action="/tweets" method="POST">
-        <div>
-          <textarea class="text-box" name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-        </div>
-        <span class="err"></span>
-        <div class="submit-counter">
-          <button type="submit">Tweet</button>
-          <output name="counter" id="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
-    <section class="tweetContainer"></section>
+
+    <aside class="backdrop">
+      <div>
+        <img src="/images/profile-hex.png">
+      </div>
+      <br>
+      <div>
+        <h2>Randomized User</h2>
+      </div>
+    </aside>
+
+    <div class="content">
+      <section class="new-tweet">
+        <form action="/tweets" method="POST">
+          <div>
+            <textarea class="text-box" name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          </div>
+          <span class="err"></span>
+          <div class="submit-counter">
+            <button type="submit">Tweet</button>
+            <output name="counter" id="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <section class="tweetContainer"></section>
+    </div>
+    <button onclick="topFunction()" class="upBtn" title="Go to top"><i class="fas fa-chevron-circle-up"></i></button>
+
   </main>
 </body>
 
