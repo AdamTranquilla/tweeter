@@ -45,12 +45,8 @@ $(document).ready(function() {
   };
 
   $('nav button').click(function() {
-    $('.new-tweet').toggleClass('visible');
-    $('#tweetText').focus(); // focus on textbox functionality currently not working :(
-  });
-
-  $("nav button").click(function() {
     $('.new-tweet').slideToggle();
+    $('.new-tweet .text-box').focus();
   });
 
   $(window).scroll(function() { // returns users to top of page by adding and removing classes
@@ -66,8 +62,8 @@ $(document).ready(function() {
     return false;
   });
 
-  $('form').submit(function(text) {
-    text.preventDefault(); // stops page from action if text is empty or too long
+  $('form').submit(function(event) {
+    event.preventDefault(); // stops page from action, action starts based off below
     const tweetData = $(this).serialize();
     const textVal = $("textarea.text-box").val();
     if (!textVal) {
@@ -81,6 +77,7 @@ $(document).ready(function() {
     $.post("/tweets", tweetData) // this is the text from the form
       .then(() => {
         loadTweets();
+        $("textarea.text-box").val("");
       }) // anon arrow to make sure post && get has recieved tweetData first
       .catch(err => console.log("Error message = ", err));
   });
