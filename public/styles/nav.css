@@ -10,11 +10,35 @@ nav {
   justify-content: space-between;
 }
 
-nav button {
+/* nav button {
   cursor: pointer;
   border: none;
   color: red;
   align-items: center;
+} */
+
+.bounce-btn {
+  border: none;
+}
+
+nav div i {
+  color: red;
+  margin-top: 12px;
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-12px);
+  }
+  60% {
+    transform: translateY(-6px);
+  }
 }
 
 nav span {

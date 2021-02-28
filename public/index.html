@@ -1,96 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <title>Tweeter - Home Page</title>
 
-<head>
-  <!-- Meta Information -->
-  <title>Tweeter - Home Page</title>
+    <!-- External CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      type="text/css"
+    />
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    type="text/css" />
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts-->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
-    rel="stylesheet">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <!-- Nav CSS -->
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
-  <!-- Nav CSS -->
-  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <!-- Form CSS -->
+    <link rel="stylesheet" href="/styles/form.css" type="text/css" />
 
-  <!-- Form CSS -->
-  <link rel="stylesheet" href="/styles/form.css" type="text/css" />
+    <!-- Aside CSS -->
+    <link rel="stylesheet" href="/styles/aside.css" type="text/css" />
 
-  <!-- Aside CSS -->
-  <link rel="stylesheet" href="/styles/aside.css" type="text/css" />
+    <!-- Tweet CSS -->
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
-  <!-- Tweet CSS -->
-  <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+    <!-- External JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <!-- External JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Counter JS -->
+    <script
+      type="text/javascript"
+      src="/scripts/composer-char-counter.js"
+    ></script>
 
-  <!-- Counter JS -->
-  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <!-- App JS -->
+    <script type="text/javascript" src="/scripts/client.js"></script>
 
-  <!-- App JS -->
-  <script type="text/javascript" src="/scripts/client.js"></script>
+    <!-- Moment JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
-  <!-- Moment JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+  </head>
 
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-
-
-</head>
-
-<body>
-
-  <nav>
-    <span>tweeter</span>
-    <div>
-      <p>Write a new tweet</p>
-      <button type="submit"><i class="fas fa-angle-double-down"></i></button>
-    </div>
-  </nav>
-
-  <main class="container">
-
-    <aside class="backdrop">
+  <body>
+    <nav>
+      <span>tweeter</span>
       <div>
-        <img src="/images/profile-hex.png">
+        <p>Write a new tweet</p>
+        <button type="submit"><i class="fas fa-angle-double-down"></i></button>
       </div>
-      <br>
-      <div>
-        <h2>Randomized User</h2>
+    </nav>
+
+    <main class="container">
+      <aside class="backdrop">
+        <div>
+          <img src="/images/profile-hex.png" />
+        </div>
+        <br />
+        <div>
+          <h2>Randomized User</h2>
+        </div>
+      </aside>
+
+      <div class="content">
+        <section class="new-tweet">
+          <form action="/tweets" method="POST">
+            <div>
+              <textarea
+                class="text-box"
+                name="text"
+                id="tweet-text"
+                placeholder="What are you humming about?"
+              ></textarea>
+            </div>
+            <span class="err"></span>
+            <div class="submit-counter">
+              <button type="submit">Tweet</button>
+              <output name="counter" id="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <section class="tweetContainer"></section>
       </div>
-    </aside>
-
-    <div class="content">
-      <section class="new-tweet">
-        <form action="/tweets" method="POST">
-          <div>
-            <textarea class="text-box" name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          </div>
-          <span class="err"></span>
-          <div class="submit-counter">
-            <button type="submit">Tweet</button>
-            <output name="counter" id="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-      <section class="tweetContainer"></section>
-    </div>
-    <button class="upBtn" title="Go to top"><i class="fas fa-chevron-circle-up"></i></button>
-
-  </main>
-</body>
-
+      <button class="upBtn" title="Go to top">
+        <i class="fas fa-chevron-circle-up"></i>
+      </button>
+    </main>
+  </body>
 </html>
