@@ -2,7 +2,7 @@
 
 Tweeter is a simplified single-page Twitter clone utilizing an HTML, CSS, JS, jQuery, AJAX front-end, Node, Express, and MongoDB back-end.
 
-### This app has been deployed to [Heroku](https://tweettweeter.herokuapp.com/)
+This app has been deployed to [Heroku](https://tweettweeter.herokuapp.com/)
 
 ## Features:
 
